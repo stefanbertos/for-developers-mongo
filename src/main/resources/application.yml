@@ -1,0 +1,8 @@
+spring:
+  config:
+    activate:
+      on-profile: default
+  data:
+    mongodb:
+      uri: mongodb+srv://cluster0.oyzqy02.mongodb.net/?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority&ssl=true
+      database: mygrocerylist
