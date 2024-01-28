@@ -28,4 +28,10 @@ Example using Mongo Atlas free cluster with Java, Spring Boot
    2024-01-22T18:50:54.347+01:00  INFO 14760 --- [ngodb.net:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=ac-yeklnch-shard-00-02.oyzqy02.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=17, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=453078700, setName='atlas-10998a-shard-0', canonicalAddress=ac-yeklnch-shard-00-02.oyzqy02.mongodb.net:27017, hosts=[ac-yeklnch-shard-00-00.oyzqy02.mongodb.net:27017, ac-yeklnch-shard-00-01.oyzqy02.mongodb.net:27017, ac-yeklnch-shard-00-02.oyzqy02.mongodb.net:27017], passives=[], arbiters=[], primary='ac-yeklnch-shard-00-01.oyzqy02.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='euc1-az1'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='EU_CENTRAL_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=9, topologyVersion=TopologyVersion{processId=65ae696dad768e01d80b6ce4, counter=3}, lastWriteDate=Mon Jan 22 18:50:53 CET 2024, lastUpdateTimeNanos=97469495993600}
    2024-01-22T18:50:54.349+01:00  INFO 14760 --- [ngodb.net:27017] org.mongodb.driver.cluster               : Discovered replica set primary ac-yeklnch-shard-00-01.oyzqy02.mongodb.net:27017 with max election id 7fffffff00000000000002b7 and max set version 9
 
+`docker-compose up`
+`docker-compose down`
 
+chmod +x generate-certs.sh
+./generate-certs.sh
+
+docker-compose up -d

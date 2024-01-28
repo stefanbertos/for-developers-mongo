@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  mongodb1:
+    image: mongo:latest
+    container_name: mongodb1
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb1-data:/data/db
+      - ./tls:/etc/tls
+      - ./init-replica.sh:/docker-entrypoint-initdb.d/init-replica.sh
+    command: mongod --replSet rs0 --tlsMode requireTLS --tlsClusterFile /etc/tls/cluster.pem --tlsCertificateKeyFile /etc/tls/server.pem --tlsCAFile /etc/tls/ca.crt --tlsAllowConnectionsWithoutCertificates
+
+  mongodb2:
+    image: mongo:latest
+    container_name: mongodb2
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongodb2-data:/data/db
+      - ./tls:/etc/tls
+    command: mongod --replSet rs0 --tlsMode requireTLS --tlsClusterFile /etc/tls/cluster.pem --tlsCertificateKeyFile /etc/tls/server.pem --tlsCAFile /etc/tls/ca.crt --tlsAllowConnectionsWithoutCertificates
+
+  mongodb3:
+    image: mongo:latest
+    container_name: mongodb3
+    ports:
+      - "27019:27017"
+    volumes:
+      - mongodb3-data:/data/db
+      - ./tls:/etc/tls
+    command: mongod --replSet rs0 --tlsMode requireTLS --tlsClusterFile /etc/tls/cluster.pem --tlsCertificateKeyFile /etc/tls/server.pem --tlsCAFile /etc/tls/ca.crt --tlsAllowConnectionsWithoutCertificates
+
+volumes:
+  mongodb1-data:
+  mongodb2-data:
+  mongodb3-data:

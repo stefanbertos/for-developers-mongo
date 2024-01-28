@@ -6,3 +6,5 @@ spring:
     mongodb:
       uri: mongodb+srv://cluster0.oyzqy02.mongodb.net/?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority&ssl=true
       database: mygrocerylist
+#String connectionString = "mongodb://mongodb1:27017,mongodb2:27017,mongodb3:27017/?replicaSet=rs0&ssl=true&sslInvalidHostNameAllowed=false&tlsCAFile=path/to/tls/ca.crt&tlsCertificateKeyFile=path/to/tls/client.pem&tlsCertificateKeyFilePassword=password";
+
