@@ -31,7 +31,8 @@ Example using Mongo Atlas free cluster with Java, Spring Boot
 `docker-compose up`
 `docker-compose down`
 
+run with cygwin or on linux
 chmod +x generate-certs.sh
 ./generate-certs.sh
 
-docker-compose up -d
+docker-compose up

@@ -10,7 +10,7 @@ services:
       - mongodb1-data:/data/db
       - ./tls:/etc/tls
       - ./init-replica.sh:/docker-entrypoint-initdb.d/init-replica.sh
-    command: mongod --replSet rs0 --tlsMode requireTLS --tlsClusterFile /etc/tls/cluster.pem --tlsCertificateKeyFile /etc/tls/server.pem --tlsCAFile /etc/tls/ca.crt --tlsAllowConnectionsWithoutCertificates
+    command: mongod --replSet rs0 --tlsMode requireTLS --tlsCertificateKeyFile /etc/tls/server.pem --tlsCAFile /etc/tls/ca.crt --tlsAllowConnectionsWithoutCertificates
 
   mongodb2:
     image: mongo:latest
@@ -20,7 +20,7 @@ services:
     volumes:
       - mongodb2-data:/data/db
       - ./tls:/etc/tls
-    command: mongod --replSet rs0 --tlsMode requireTLS --tlsClusterFile /etc/tls/cluster.pem --tlsCertificateKeyFile /etc/tls/server.pem --tlsCAFile /etc/tls/ca.crt --tlsAllowConnectionsWithoutCertificates
+    command: mongod --replSet rs0 --tlsMode requireTLS --tlsCertificateKeyFile /etc/tls/server.pem --tlsCAFile /etc/tls/ca.crt --tlsAllowConnectionsWithoutCertificates
 
   mongodb3:
     image: mongo:latest
@@ -30,7 +30,7 @@ services:
     volumes:
       - mongodb3-data:/data/db
       - ./tls:/etc/tls
-    command: mongod --replSet rs0 --tlsMode requireTLS --tlsClusterFile /etc/tls/cluster.pem --tlsCertificateKeyFile /etc/tls/server.pem --tlsCAFile /etc/tls/ca.crt --tlsAllowConnectionsWithoutCertificates
+    command: mongod --replSet rs0 --tlsMode requireTLS --tlsCertificateKeyFile /etc/tls/server.pem --tlsCAFile /etc/tls/ca.crt --tlsAllowConnectionsWithoutCertificates
 
 volumes:
   mongodb1-data:

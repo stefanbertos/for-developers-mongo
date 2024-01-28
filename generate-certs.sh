@@ -18,7 +18,12 @@ openssl genpkey -algorithm RSA -out tls/client.key
 openssl req -new -key tls/client.key -out tls/client.csr -subj "/CN=MongoDB-Client"
 openssl x509 -req -in tls/client.csr -CA tls/ca.crt -CAkey tls/ca.key -out tls/client.crt -days 365 -CAcreateserial
 cat tls/client.crt tls/client.key > tls/client.pem
+openssl x509 -outform der -in tls/client.pem -out tls/client.der
+
+# Create cluster.pem (concatenation of CA and server certificates)
+cat tls/ca.crt tls/server.pem > tls/cluster.pem
+chmod 600 tls/cluster.pem
 
 # Generate JKS for client
 keytool -importcert -file tls/ca.crt -keystore tls/client-truststore.jks -storepass password -alias mongoCA -noprompt
-keytool -importkeystore -srckeystore tls/client.pem -srcstoretype PEM -destkeystore tls/client-keystore.jks -deststorepass password -noprompt
+keytool -import -file tls/client.der -keystore tls/client-keystore.jks -storepass password -alias client -noprompt
